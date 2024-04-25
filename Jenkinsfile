@@ -43,12 +43,16 @@ pipeline {
             }
          }
       }
-      stage('Deploying to Rancher to single node(deployed in 3 replicas)') {
+      
+      stage('Deploying to Rancher on a single node, which is configured to have three replicas deployed.') {
          steps {
             script{
-               sh "kubectl set image deployment/spring container-0=venkataravisridhardevarakonda/swe645hw3:${env.TIMESTAMP} -n default"
+               withKubeConfig([credentialsId: 'kubeconfig_credentials', serverUrl: 'https://ec2-52-6-143-211.compute-1.amazonaws.com/k8s/clusters/c-m-hwdrvxbs']) {
+                   sh "kubectl set image deployment/spring container-0=venkataravisridhardevarakonda/swe645hw3:${env.TIMESTAMP} -n default"
+               }
             }
          }
       }
+
    }
 }
