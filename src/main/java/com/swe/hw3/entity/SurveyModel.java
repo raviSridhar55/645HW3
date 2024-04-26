@@ -5,7 +5,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.Objects;
-//test comment
 @Entity
 @Table(name="survey_Table")
 public class SurveyModel {
