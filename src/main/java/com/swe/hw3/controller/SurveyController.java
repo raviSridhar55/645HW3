@@ -1,5 +1,15 @@
-package com.swe.hw3.controller;
+/*
+ * Program Name: Survey Controller
+ * Description: This class handles HTTP requests for creating, retrieving, updating, and deleting surveys. 
+ *              It leverages the SurveyService to interact with survey data.
+ * Author: Ajay Kumar Addike (G01398832)
+        Venkata Ravi Sridhar Devarakonda (G01449062)
+        Rohith Tangudu (G01409971)
+        Arun Chakravarthy Annadata (G01409888)
+ * Date: Date of creation or last modification (optional)
+ */
 
+package com.swe.hw3.controller;
 import com.swe.hw3.dataTransferObjectResponse.Response;
 import com.swe.hw3.entity.SurveyModel;
 import com.swe.hw3.service.SurveyService;

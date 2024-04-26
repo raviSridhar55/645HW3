@@ -1,8 +1,18 @@
-package com.swe.hw3.entity;
+/*
+ * Program Name: Survey Model Entity
+ * Description: This class represents the entity model for a survey. It maps to the 'survey_Table' in the database
+ *              and includes fields such as name, address, contact information, survey preferences, and more.
+ *              It also includes methods for standard object functions like toString, hashCode, and equals.
+ * Author: Ajay Kumar Addike (G01398832)
+        Venkata Ravi Sridhar Devarakonda (G01449062)
+        Rohith Tangudu (G01409971)
+        Arun Chakravarthy Annadata (G01409888) 
+* Date: Date of creation or last modification (optional)
+ */
 
+package com.swe.hw3.entity;
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
-//test comment
 import java.util.Date;
 import java.util.Objects;
 @Entity
