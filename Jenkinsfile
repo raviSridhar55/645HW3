@@ -44,10 +44,20 @@ pipeline {
          }
       }
       
-      stage('Deploying to Rancher to single node(deployed in 3 replicas)') {
+      // stage('Deploying to Rancher to single node(deployed in 3 replicas)') {
+      //    steps {
+      //       script{
+      //          sh "kubectl set image deployment/springsurvey container-0=venkataravisridhardevarakonda/spring-survey:${env.TIMESTAMP} -n default"
+      //       }
+      //    }
+      // }
+
+      stage('Deploying to Rancher utilizing a Load Balancer as a service.') {
          steps {
             script{
-               sh "kubectl set image deployment/springsurvey container-0=venkataravisridhardevarakonda/spring-survey:${env.TIMESTAMP} -n default"
+               withKubeConfig([credentialsId: 'kubeconfig_credentials', serverUrl: 'https://ec2-3-227-26-92.compute-1.amazonaws.com/k8s/clusters/c-m-qxtljqz9']) {
+                   sh "kubectl set image deployment/springsurvey container-0=venkataravisridhardevarakonda/spring-survey:${env.TIMESTAMP} -n default"
+               }
             }
          }
       }
